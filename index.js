@@ -1,20 +1,21 @@
 var express = require('express');
+var path = require('path');
 var app = express();
+app.use(express.static(path.join(__dirname, 'dist')));
 
-const webpack = require('webpack');
-const config = require('./webpack.config');
-const compiler = webpack(config);
+let PORT = process.env.PORT || 4000;
+const APIBASEURL = process.env.APIBASEURL || '/api';
+const WILDCARD = '*';
 
-app.use(
-	require('webpack-dev-middleware')(compiler, {
-		publicPath: config.output.publicPath
-	})
-);
+// Any api call will go thorough this
+app.get(APIBASEURL, (req, res) => res.send('Hello World from Express!'));
 
-app.get('/api', (req, res) => res.send('Hello World from Express!'));
-
-app.get('*', function(req, res) {
+// Index html served via express
+app.get(WILDCARD, function(req, res) {
+	console.log('Get *');
 	res.sendFile('dist/index.html', { root: __dirname });
 });
 
-app.listen(4000);
+app.listen(PORT, () => {
+	console.log(`App serving at http://localhost:${PORT}`);
+});
