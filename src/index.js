@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 class App extends Component {
 	render() {
 		return <div>Hello world from React.</div>;
-	}
+	   } 
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
