@@ -13,11 +13,7 @@
     "lint": "eslint .",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\""
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && npm run format"
-    }
-  },
+ 
   "author": "Jeffery Shivers",
   "license": "MIT",
   "dependencies": {
@@ -44,5 +40,16 @@
     "webpack": "^4.46.0",
     "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.3.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run format"
+    }
+  },
+  "link-staged" : {
+    "*.{js,jsx}" : [
+      "npm run format",
+      "npm run lint"
+    ]
   }
 }
