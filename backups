@@ -1,0 +1,2 @@
+
+    // "dev": "nodemon index.js ./node_modules/.bin/webpack-dev-server --port 3000 --content-base dist/",
