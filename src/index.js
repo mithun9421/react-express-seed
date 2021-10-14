@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 class App extends Component {
 	render() {
-		return <div>Hello world f rom React.</div>;
+		return <div>Hello world f rom React.</div>; 
 	   } 
 }
 
