@@ -13,11 +13,11 @@
     "lint": "eslint .",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\""
   },
- 
   "author": "Jeffery Shivers",
   "license": "MIT",
   "dependencies": {
     "concurrently": "^6.3.0",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.16.2"
   },
@@ -37,6 +37,7 @@
     "prettier": "^2.4.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-router-dom": "^5.3.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.3.1"
@@ -46,8 +47,8 @@
       "pre-commit": "npm run lint && npm run format"
     }
   },
-  "link-staged" : {
-    "*.{js,jsx}" : [
+  "link-staged": {
+    "*.{js,jsx}": [
       "npm run format",
       "npm run lint"
     ]
