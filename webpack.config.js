@@ -1,33 +1,37 @@
-const path = require("path")
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-module.exports = {
-  context: __dirname,
-  entry: "./src/index.js",
-  output: {
-    filename: "bundle.js",
-    publicPath: "/",
-    path: path.resolve(__dirname, "dist"),
-  },
+const {merge} = require('webpack-merge')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const commonConfig = require('./webpack.common')
+
+module.exports = merge(commonConfig, {
+  mode: 'production',
+  devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: "babel-loader",
-      },
-      {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(png|j?g|svg|gif)?$/,
-        use: "file-loader",
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+        ],
       },
     ],
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, "public/index.html"),
-      filename: "index.html",
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
     }),
   ],
-}
+  optimization: {
+    minimizer: [
+      new OptimizeCssAssetsPlugin({
+        cssProcessorOptions: {
+          map: {
+            inline: false,
+            annotation: true,
+          },
+        },
+      }),
+    ],
+  },
+})
