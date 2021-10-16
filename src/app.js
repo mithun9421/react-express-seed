@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './styles/app.css';
+import Image from './images/github-cover.jpg'
+import './styles/app.scss';
 
 class App extends React.Component {
 	componentDidMount() {
@@ -13,7 +14,8 @@ class App extends React.Component {
 		.then(jsondata => console.log(jsondata))
 	}
 	render() {
-		return <div className="app">Hello world froms React.</div>; 
+		return <div className="app">Hello world froms React.
+			<img src={Image}></img></div>;
 	   } 
 }
 
