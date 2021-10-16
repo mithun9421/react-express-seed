@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --names \"SERVER,CLIENT\" \"npm run dev:server-norefresh\" \"npm run dev:client\"",
     "dev:client": "webpack serve --config=webpack.dev.js",
-    "dev:server": "nodemon index.js",
-    "dev:server-norefresh": "node index.js",
-    "start": "node index.js",
+    "dev:server": "nodemon functions/index.js",
+    "dev:server-norefresh": "node functions/index.js",
+    "start": "node functions/index.js",
     "build": "./node_modules/.bin/webpack --config=webpack.config.js",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\""
