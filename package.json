@@ -1,5 +1,5 @@
 {
-  "name": "react-express-boilerplate",
+  "name": "react-express-webpack-seed",
   "version": "1.0.0",
   "description": "a starter project in React (using Webpack) with an ExpressJS server",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\""
   },
-  "author": "Jeffery Shivers",
+  "author": "Mithun",
   "license": "MIT",
   "dependencies": {
     "concurrently": "^6.3.0",
