@@ -1,8 +1,9 @@
 const functions = require('firebase-functions');
 const express = require('express');
 const cors = require('cors');
-
+var apis = require('./apis/hello-world');
 const app = express();
+app.use('/api', apis);
 app.use(
 	cors({
 		origin: true
