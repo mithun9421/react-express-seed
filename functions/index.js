@@ -3,15 +3,12 @@ const express = require('express');
 const cors = require('cors');
 var apis = require('./apis/hello-world');
 const app = express();
-app.use('/api', apis);
-app.use(
-	cors({
-		origin: true
-	})
-);
+app.use(cors({ origin: true }));
 
+// Any new file has to be below cors
+app.use('/api', apis);
 app.get('/', (req, res) => {
-	res.send('Hello from express hosted in cloud functions');
+	res.json({ message: 'Hi from express' });
 });
 
 exports.expressAPI = functions.https.onRequest(app);
